@@ -1,0 +1,19 @@
+.back {
+  color: #000000;
+  position: relative;
+  top: 50px;
+}
+
+@media only screen and (max-width: 768px) {
+  .back {
+    display: none;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .back {
+    color: #000000;
+    position: relative;
+    top: 5vw;
+    left: -5%;
+  }
+}

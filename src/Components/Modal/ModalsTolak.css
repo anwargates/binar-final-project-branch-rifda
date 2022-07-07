@@ -1,0 +1,44 @@
+.text__input__transaksi{
+   font-weight: 500;
+   
+}
+
+.text__input__transaksi2{
+   margin-top: -10px;
+}
+
+.btn__kirim__{
+   background-color: #7126B5;
+   border-color: #7126B5;
+   border-radius: 16px;
+}
+
+.form-check-input{
+   color: #7126B5;
+}
+
+input[name="transaksi"] {
+	accent-color: green;
+}
+
+.modals__tolak__header{
+   border-bottom: none;
+}
+
+@media (max-width: 768px) {
+   .modal-tolak{
+      margin: 0;
+      bottom: -150vh;
+      position: fixed;
+      max-width: 100%;
+      transition: all .3s ease-in-out;
+      height: 50%;
+   }
+
+   .modal.show .modal-tolak{
+      bottom: 0;
+      transition: all .3s ease-in-out;
+      min-height: auto;
+      align-items: flex-end;
+   }
+}

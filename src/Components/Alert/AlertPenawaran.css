@@ -1,0 +1,53 @@
+.cust-alert {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  padding: 16px 24px;
+  gap: 16px;
+  width: 500px;
+  height: 52px;
+
+  color: #fff;
+  background: #73ca5c;
+  border: none;
+  border-radius: 12px;
+  z-index: 6000;
+
+  left: 29%;
+  top: 10%;
+}
+
+.cust-alert p {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ffffff;
+
+  margin: auto;
+  margin-left: 0;
+  text-align: center;
+}
+
+.cust-alert button {
+  color: #fff;
+  margin: auto;
+  background: transparent url(/public/img/fi_x.svg) center no-repeat;
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  /* alert */
+  .cust-alert {
+    width: auto;
+    height: auto;
+    margin: 1rem;
+    left: 0;
+    right: 0;
+  }
+  .cust-alert p {
+    text-align: left;
+  }
+}

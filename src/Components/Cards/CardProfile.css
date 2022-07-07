@@ -1,0 +1,27 @@
+.card__profile {
+  width: 100%;
+  height: 90px;
+  border-radius: 12px;
+  margin-top: 5%;
+}
+
+.wrapper__ {
+  padding: 16px;
+}
+
+@media only screen and (max-width: 768px) {
+  .card__ {
+    min-width: 90%;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .card__ {
+    min-width: 90%;
+  }
+
+  .wrapper__body {
+    position: relative;
+    /* top: -42%; */
+    left: 10%;
+  }
+}

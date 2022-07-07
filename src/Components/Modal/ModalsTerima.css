@@ -1,0 +1,63 @@
+.card__modals__terima {
+  background-color: #eeeeee;
+  border: none;
+  border-radius: 16px;
+}
+
+.img__modals__profil {
+  width: 48px;
+}
+
+.btn__send__wa {
+  background-color: #7126b5;
+  border-color: #7126b5;
+  border-radius: 16px;
+  height: 120%;
+}
+
+.text__modals__send {
+  margin-top: -15px;
+}
+
+/* @media only screen and (max-width: 575px) {
+  .text__modals__send {
+    margin-top: -15px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+  }
+  .texts__modals__send {
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+  }
+  .card__modals__terima {
+    background-color: #ffffff;
+    border: 2px solid;
+    border-color: #eeeeee;
+    border-radius: 16px;
+  }
+  .img__modals__profil {
+    display: flex;
+    justify-content: center;
+    width: 25%;
+  }
+} */
+
+@media (max-width: 768px) {
+  .modal-terima{
+     margin: 0;
+     bottom: -150vh;
+     position: fixed;
+     max-width: 100%;
+     transition: all .3s ease-in-out;
+     height: 50%;
+  }
+
+  .modal.show .modal-terima{
+     bottom: 0;
+     transition: all .3s ease-in-out;
+     min-height: auto;
+     align-items: flex-end;
+  }
+}
