@@ -10,7 +10,7 @@ const CardProfile = (props) => {
         <Row className="wrapper__">
           <Col lg={2} md={2} sm={2} xs={2} className="d-block">
             <Card.Img
-              src="./Img/profile.png"
+              src="./img/profile.png"
               alt=""
               style={{ width: 60 }}
               className="d-flex justify-content-center "

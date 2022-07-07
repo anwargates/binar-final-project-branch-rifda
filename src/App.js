@@ -12,9 +12,9 @@ const App = ()  => {
    <div className="app_container">
     <BrowserRouter>
      <Routes>
-       <Route path ="/" element={<Buyer/>}/>
-       <Route path ="/infopenawaran" element={<InfoPenawaran/>}/>
-       <Route path ="/seller" element={<Seller/>}/>
+       <Route path ="/buyer/:id" element={<Buyer/>}/>
+       <Route path ="/infopenawaran/:id" element={<InfoPenawaran/>}/>
+       <Route path ="/seller/:id" element={<Seller/>}/>
      </Routes>
      </BrowserRouter>
    </div>

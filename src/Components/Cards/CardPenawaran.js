@@ -4,7 +4,7 @@ import { Card, Row, Col, Button } from "react-bootstrap";
 import ModalsTerima from "../Modal/ModalsTerima";
 import ModalsTolak from "../Modal/ModalsTolak";
 
-const CardPenawaran = () => {
+const CardPenawaran = (props) => {
   const [terima, setTerima] = useState(false);
   const [tolak, setTolak] = useState(false);
 
@@ -14,7 +14,7 @@ const CardPenawaran = () => {
         <Row className="wrapper__ g-0">
           <Col xl={2} lg={2} md={2} sm={2} className="d-block">
             <Card.Img
-              src="./Img/jam.svg"
+              src="img/jam.svg"
               alt=""
               style={{ width: 60 }}
               className="d-flex justify-content-center "
@@ -32,8 +32,15 @@ const CardPenawaran = () => {
               <p className="fw-light text-muted">20 Apr, 14:04</p>
             </div>
             <div className="para__h6">
-              <h6 className="fw-bold">Jam Tangan</h6>
-              <h6 className="fw-bold">Rp. 250.000</h6>
+              <h6 className="fw-bold">
+                {/* Jam Tangan */}
+              {props.namaBarang}
+              </h6>
+              <h6 className="fw-bold">
+                {/* Rp. 250.000 */}
+                Rp. 
+                {props.hargaBarang}
+                </h6>
               <h6 className="fw-bold">Ditawar Rp. 200.000</h6>
             </div>
           </Col>
