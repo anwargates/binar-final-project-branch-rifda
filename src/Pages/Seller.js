@@ -7,7 +7,7 @@ import AlertBuyer from '../Components/Alert/AlertBuyer'
 import axios from 'axios'
 import jwtDecode from "jwt-decode"
 import userSlice from "../Components/store/userSlice"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useForm } from "react-hook-form";
 // import Navbar from '../Components/Navbar/Navbar'
 
@@ -23,14 +23,14 @@ const Buyer = () => {
 
 
     const { id } = useParams()
-    const url = `https://finalsecondhand-staging.herokuapp.com/product/${id}`
+    // const url = `https://finalsecondhand-staging.herokuapp.com/product/${id}`
     const [product, setProduct] = useState(null)
 
     let content = null
 
-    useEffect(() => {
-        axios.get(url).then(response => { setProduct(response.data) })
-    }, [url])
+    // useEffect(() => {
+    //     axios.get(url).then(response => { setProduct(response.data) })
+    // }, [url])
 
     // dispatch axios
     const dispatch = useDispatch();
@@ -39,12 +39,13 @@ const Buyer = () => {
     //menampilkan data  email dan password
 
 
-
-
     const postData = {
         email: "demouser@gmail.com",
         password: "123",
     };
+
+    const state = useSelector(state => state.user)
+    // console.log(state)
 
     useEffect(() => {
 
@@ -53,7 +54,7 @@ const Buyer = () => {
             .then((res) => {
                 console.log(res);
                 /* memastikan bahwa token nya ada
-        if (typeof res.data.acessToken !== "undefined") {
+                if (typeof res.data.acessToken !== "undefined") {
                     localStorage.setItem("secondHandToken", res.data.acessToken);
                 } */
 
@@ -61,7 +62,12 @@ const Buyer = () => {
 
                 const user = jwtDecode(res.data.token);
                 console.log(user); 
-                axios.get(`https://finalsecondhand-staging.herokuapp.com/User`).then((res) => {
+                const config = {
+                    headers: {
+                        Authorization: 'Bearer ' + res.data.token
+                    }
+                };
+                axios.get(`https://finalsecondhand-staging.herokuapp.com/user`, config).then((res) => {
                     console.log(res);    
                 dispatch(
                         userSlice.actions.addUser({
@@ -69,8 +75,10 @@ const Buyer = () => {
                         })
                     );
                     // jika sudah login maka diarahkan ke :
-                    navigate("/daftarJual");
+                    navigate(`/seller/${id}`);
                 });
+
+                axios.get(`https://finalsecondhand-staging.herokuapp.com/product/${id}`).then(response => { setProduct(response.data) })
             })
 
             // failed register notification
@@ -81,10 +89,10 @@ const Buyer = () => {
                     message: "Failed to Login, make sure your Account has been register",
                 });
             });
-    }, ["https://finalsecondhand-staging.herokuapp.com/auth/login"])
+    }, [`https://finalsecondhand-staging.herokuapp.com/product/${id}`])
 
-
-    if (product) {
+    
+    if (product && state.data.data.id === product.data.user.id) {
         content =
             <>
                 {/* <Navbar /> */}
@@ -216,6 +224,8 @@ const Buyer = () => {
 
             </>
     }
+
+    
 
     return (
 
