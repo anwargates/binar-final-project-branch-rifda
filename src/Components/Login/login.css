@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+
+:root {
+	--header: #000000;
+	--border: #d0d0d0;
+	--primary: #7126b5;
+	--secondary: #ffffff;
+	--hover: #ab5ef2;
+}
+
+.login_container {
+	margin: 0;
+	padding: 0;
+}
+
+.login_left {
+	margin-right: 0px;
+}
+
+.login_img {
+	width: 575px;
+	height: auto;
+}
+
+.login_right {
+	margin-left: 30vh;
+}
+
+.login_right > h2 {
+	font-family: Poppins;
+	color: var(--header);
+	margin-top: 25vh;
+	margin-left: 5px;
+}
+
+label {
+	font-family: Poppins;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 18px;
+	letter-spacing: 0em;
+	text-align: left;
+	padding-top: 20px;
+	margin: 10px 12px 8px 12px;
+}
+
+.input_box {
+	border: 1px solid var(--border);
+	margin-left: 10px;
+	border-radius: 16px;
+	padding: 12px;
+	width: 98%;
+}
+
+.login_icon {
+	margin-left: -50px;
+	font-size: 22px;
+	color: var(--header);
+}
+
+.login_submit {
+	background-color: var(--primary);
+	border-radius: 16px;
+	font-size: 14px;
+	padding: 12px 24px;
+	color: var(--secondary);
+	border: none;
+	width: 102%;
+}
+
+.footer > p {
+	font-family: Poppins;
+	text-align: center;
+	margin: 75px 35px 0px 0px;
+}
+
+.daftar {
+	text-decoration: none;
+	margin-left: 5px;
+	color: var(--primary);
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 20px;
+	letter-spacing: 0em;
+	text-align: left;
+	text-transform: capitalize;
+}
+
+@media screen and (max-width: 768px) {
+	.login_right {
+		margin-left: 20.5px;
+	}
+
+	.arrow-svg {
+		margin: 50px 0px 0px 20.5px;
+	}
+
+	.login_right > h2 {
+		font-size: 24px;
+		line-height: 36px;
+		margin: 35px 0px 40px 8px;
+		font-weight: 700;
+	}
+
+	.login_label {
+		margin-left: 10px;
+	}
+
+	.input_box {
+		border: 1px solid var(--border);
+		margin-left: 1px;
+		border-radius: 16px;
+		padding: 12px 16px;
+		width: 85%;
+	}
+
+	.login_submit {
+		background-color: var(--primary);
+		border-radius: 16px;
+		font-size: 14px;
+		padding: 12px 24px;
+		color: var(--secondary);
+		border: none;
+		width: 87%;
+		transition: 0.3s ease-in-out;
+	}
+
+	.login_submit:hover {
+		border-radius: 80px;
+		background-color: var(--hover);
+	}
+
+	.footer {
+		text-align: center;
+		margin: 100px 35px 0px 0px;
+	}
+
+	.footer > a {
+		text-decoration: none;
+	}
+}

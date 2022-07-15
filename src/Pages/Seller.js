@@ -12,6 +12,8 @@ import { useForm } from "react-hook-form";
 // import Navbar from '../Components/Navbar/Navbar'
 
 const Buyer = () => {
+    const { id } = useParams()
+
     const [show, setShow] = useState(false);
     const [alertShow, setAlertShow] = useState(false);
     const [disable, setDisable] = useState(false);
@@ -19,10 +21,8 @@ const Buyer = () => {
         success: false,
         message: "",
     });
-    const { register, handleSubmit, formState } = useForm();
+    const state = useSelector(state => state.user)
 
-
-    const { id } = useParams()
     // const url = `https://finalsecondhand-staging.herokuapp.com/product/${id}`
     const [product, setProduct] = useState(null)
 
@@ -32,66 +32,23 @@ const Buyer = () => {
     //     axios.get(url).then(response => { setProduct(response.data) })
     // }, [url])
 
-    // dispatch axios
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-
-    //menampilkan data  email dan password
-
-
-    const postData = {
-        email: "demouser@gmail.com",
-        password: "123",
-    };
-
-    const state = useSelector(state => state.user)
-    // console.log(state)
-
+    
     useEffect(() => {
+        axios.get(`https://finalsecondhand-staging.herokuapp.com/product/${id}`).then(response => { 
+        // console.log(response);    
+        setProduct(response.data) 
+        
+    })
+    console.log(state.data.data.id);
+        // console.log(product.data.user.id);
+        console.log(product);
+        
 
-        axios
-            .post("https://finalsecondhand-staging.herokuapp.com/auth/login", postData) // kalau dah ready taruh link heroku disini
-            .then((res) => {
-                console.log(res);
-                /* memastikan bahwa token nya ada
-                if (typeof res.data.acessToken !== "undefined") {
-                    localStorage.setItem("secondHandToken", res.data.acessToken);
-                } */
 
-                // menyimpan di redux store
-
-                const user = jwtDecode(res.data.token);
-                console.log(user); 
-                const config = {
-                    headers: {
-                        Authorization: 'Bearer ' + res.data.token
-                    }
-                };
-                axios.get(`https://finalsecondhand-staging.herokuapp.com/user`, config).then((res) => {
-                    console.log(res);    
-                dispatch(
-                        userSlice.actions.addUser({
-                            userData: res.data,
-                        })
-                    );
-                    // jika sudah login maka diarahkan ke :
-                    navigate(`/seller/${id}`);
-                });
-
-                axios.get(`https://finalsecondhand-staging.herokuapp.com/product/${id}`).then(response => { setProduct(response.data) })
-            })
-
-            // failed register notification
-            .catch((err) => {
-                console.log(err);
-                setLoginStatus({
-                    success: false,
-                    message: "Failed to Login, make sure your Account has been register",
-                });
-            });
     }, [`https://finalsecondhand-staging.herokuapp.com/product/${id}`])
 
-    
+
+
     if (product && state.data.data.id === product.data.user.id) {
         content =
             <>
@@ -223,9 +180,14 @@ const Buyer = () => {
 
 
             </>
+    } else {
+        content =
+            <>
+                Silahkan Login
+            </>
     }
 
-    
+
 
     return (
 
