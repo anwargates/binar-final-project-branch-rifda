@@ -6,28 +6,68 @@ import ModalBuyer from '../Components/Modal/ModalBuyer'
 import AlertBuyer from '../Components/Alert/AlertBuyer'
 // import Navbar from '../Components/Navbar/Navbar'
 import axios from 'axios'
+import { IoHeart } from 'react-icons/io5'
+import { IconContext } from 'react-icons/lib'
+import { set } from 'immer/dist/internal'
 
 
 const Buyer = () => {
+    // params
+    const { id } = useParams()
+    // states
     const [show, setShow] = useState(false);
     const [alertShow, setAlertShow] = useState(false);
     const [disable, setDisable] = useState(false);
+    const [isWishlisted, setIsWishlisted] = useState(false)
+    const [product, setProduct] = useState(null)
+    const [wishlistID, setWishlistID] = useState(null)
 
     const buttonText = disable ? "Menunggu respon penjual" : "Saya Tertarik dan ingin Nego";
 
-    const { id } = useParams()
     const url = `https://finalsecondhand-staging.herokuapp.com/product/${id}`
-    const [product, setProduct] = useState(null)
+    const urlWishlist = `https://finalsecondhand-staging.herokuapp.com/wishlist`
+    const urlWishlistAction = `https://finalsecondhand-staging.herokuapp.com/wishlist/${wishlistID}`
 
     let content = null
 
+    const token = localStorage.getItem("secondHandToken");
+    const config = {
+        headers: {
+            Authorization: 'Bearer ' + token
+        }
+    };
+
+    // wishlist handler
+    // create and delete wishlist
+    const handleWishlist = () => {
+        if (isWishlisted) {
+            axios.delete(urlWishlistAction, config).then(response=>{console.log(response)
+                setIsWishlisted(!isWishlisted)});
+        } else {
+            axios.post(urlWishlistAction, config).then(response=>{console.log(response)
+                setIsWishlisted(!isWishlisted)});
+        }
+        
+    }
+
     useEffect(() => {
-        axios.get(url).then(response => { setProduct(response.data) })
+        axios.get(url).then(response => { setProduct(response.data) });
+        axios.get(urlWishlist, config).then(response => {
+            console.log(response)
+            response.data.data.map(function (tag) {
+                if (tag.product_id == id) {
+                    setWishlistID(tag.id)
+                    setIsWishlisted(true)
+                }
+                return response;
+            })
+        })
     }, [url])
 
     if (product) {
         content =
             <>
+                {console.log(isWishlisted)}
                 {/* <Navbar /> */}
                 <AlertBuyer show={alertShow} onClose={() => setAlertShow(false)} />
                 <div className="back-nav">
@@ -72,20 +112,30 @@ const Buyer = () => {
                             <div className="row gy-4 alignment-mobile">
                                 <div className="col-12">
                                     <div className="row harga">
-                                        <h1>
-                                            {/* Jam Tangan Casio */}
-                                        {product.data.name}
-                                        </h1>
+                                        <div>
+                                            <div className="top-row-wishlist">
+                                                <h1>
+                                                    {/* Jam Tangan Casio */}
+                                                    {product.data.name}
+                                                </h1>
+                                                <IconContext.Provider value={isWishlisted ? { color: "black" } : { color: "grey" }}>
+                                                    <IoHeart
+                                                        onClick={handleWishlist}
+                                                    />
+                                                </IconContext.Provider>
+                                            </div>
+                                        </div>
                                         <h3>
                                             {/* Aksesoris */}
-                                            {product.data.product_tags.map(function(tag){
-                                                return tag.category.name + ", "})}
-                                            </h3>
+                                            {product.data.product_tags.map(function (tag) {
+                                                return tag.category.name + ", "
+                                            })}
+                                        </h3>
                                         <h4 className="price">
                                             {/* Rp 250.000 */}
                                             Rp.
                                             {product.data.price}
-                                            </h4>
+                                        </h4>
                                         <Button
                                             disabled={disable}
                                             className='button shadow-none button-disable'
@@ -104,7 +154,7 @@ const Buyer = () => {
                                             <h1>
                                                 {/* Nama Penjual */}
                                                 {product.data.user.name}
-                                                </h1>
+                                            </h1>
                                             <h3>
                                                 Kota
 

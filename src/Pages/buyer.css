@@ -10,6 +10,11 @@ body {
   display: none;
 }
 
+.top-row-wishlist {
+  display: flex;
+  justify-content: space-between;
+}
+
 .harga {
   /* width: 336px; */
   padding: 1rem 0.5rem;
@@ -256,11 +261,11 @@ body {
     z-index: 12;
   }
   /* harga */
-  .harga-mobile{
+  .harga-mobile {
     padding: 0;
   }
 
-  .alignment-mobile{
+  .alignment-mobile {
     margin-left: 1rem;
     margin-right: 1rem;
   }
@@ -310,11 +315,11 @@ body {
   }
 
   /* desc */
-  .desc-mobile{
+  .desc-mobile {
     padding: 0 1rem;
   }
 
-  .desc{
+  .desc {
     margin: auto;
   }
 }
