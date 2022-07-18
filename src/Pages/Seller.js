@@ -32,24 +32,22 @@ const Buyer = () => {
     //     axios.get(url).then(response => { setProduct(response.data) })
     // }, [url])
 
-    
+
     useEffect(() => {
-        axios.get(`https://finalsecondhand-staging.herokuapp.com/product/${id}`).then(response => { 
-        // console.log(response);    
-        setProduct(response.data) 
-        
-    })
-    console.log(state.data.data.id);
-        // console.log(product.data.user.id);
-        console.log(product);
-        
-
-
+            axios.get(`https://finalsecondhand-staging.herokuapp.com/product/${id}`).then(response => {
+                // console.log(response);    
+                setProduct(response.data)
+            })
+            // console.log(state.data.data.id);
+            // console.log(product.data.user.id);
+            // console.log(product);
     }, [`https://finalsecondhand-staging.herokuapp.com/product/${id}`])
 
 
 
-    if (product && state.data.data.id === product.data.user.id) {
+    if (product)
+    // && state.data.data.id === product.data.user.id
+    {
         content =
             <>
                 {/* <Navbar /> */}

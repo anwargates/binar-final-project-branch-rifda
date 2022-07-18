@@ -8,6 +8,10 @@ const CardPenawaran = (props) => {
   const [terima, setTerima] = useState(false);
   const [tolak, setTolak] = useState(false);
 
+  const date = props.createdAt.slice(0,10);
+  const time = props.createdAt.slice(11,16);
+
+
   return (
     <>
       <Card className="card__penawaran mx-auto">
@@ -29,7 +33,11 @@ const CardPenawaran = (props) => {
           >
             <div className="d-flex justify-content-between para">
               <p className="fw-light text-muted">Penawaran Produk</p>
-              <p className="fw-light text-muted">20 Apr, 14:04</p>
+              <p className="fw-light text-muted">
+                
+                {date + ", " + time}
+                {/* 20 Apr, 14:04 */}
+              </p>
             </div>
             <div className="para__h6">
               <h6 className="fw-bold">
@@ -38,10 +46,14 @@ const CardPenawaran = (props) => {
               </h6>
               <h6 className="fw-bold">
                 {/* Rp. 250.000 */}
-                Rp. 
+                Rp.  
                 {props.hargaBarang}
                 </h6>
-              <h6 className="fw-bold">Ditawar Rp. 200.000</h6>
+              <h6 className="fw-bold">
+                Rp.  
+                {props.hargaTawar}
+                {/* Ditawar Rp. 200.000 */}
+                </h6>
             </div>
           </Col>
           <Col sm={12} md={12} lg={12} className="wrapper__button__penawaran">

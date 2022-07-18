@@ -30,13 +30,13 @@ const Buyer = () => {
             <>
                 {/* <Navbar /> */}
                 <AlertBuyer show={alertShow} onClose={() => setAlertShow(false)} />
-                <div class="back-nav">
+                <div className="back-nav">
                     <Link to="/"><img src="/img/fi_arrow-left.png" alt="" /></Link>
                     {/* <a href=""><img src="img/fi_arrow-left.png" alt=""></a> */}
                 </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12 col-md-8 col-lg-8 g-4 carousel-mobile">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-sm-12 col-md-8 col-lg-8 g-4 carousel-mobile">
                             <Carousel>
                                 <Carousel.Item>
                                     <img
@@ -68,10 +68,10 @@ const Buyer = () => {
                                 </Carousel.Item>
                             </Carousel>
                         </div>
-                        <div class="col-sm-12 col-md-4 col-lg-4 g-4 harga-mobile">
-                            <div class="row gy-4 alignment-mobile">
-                                <div class="col-12">
-                                    <div class="row harga">
+                        <div className="col-sm-12 col-md-4 col-lg-4 g-4 harga-mobile">
+                            <div className="row gy-4 alignment-mobile">
+                                <div className="col-12">
+                                    <div className="row harga">
                                         <h1>
                                             {/* Jam Tangan Casio */}
                                         {product.data.name}
@@ -81,7 +81,7 @@ const Buyer = () => {
                                             {product.data.product_tags.map(function(tag){
                                                 return tag.category.name + ", "})}
                                             </h3>
-                                        <h4 class="price">
+                                        <h4 className="price">
                                             {/* Rp 250.000 */}
                                             Rp.
                                             {product.data.price}
@@ -94,13 +94,13 @@ const Buyer = () => {
                                         </Button>
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <div class="row seller">
-                                        <div class="col-4 profile">
-                                            <Link to="/"><img class="" src="/img/profile.png" alt="" /></Link>
+                                <div className="col-12">
+                                    <div className="row seller">
+                                        <div className="col-4 profile">
+                                            <Link to="/"><img className="" src="/img/profile.png" alt="" /></Link>
                                             {/* <img src="/img/profile.png" alt=""> */}
                                         </div>
-                                        <div class="col-8 seller-name">
+                                        <div className="col-8 seller-name">
                                             <h1>
                                                 {/* Nama Penjual */}
                                                 {product.data.user.name}
@@ -115,8 +115,8 @@ const Buyer = () => {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-8 col-lg-8 g-4 desc-mobile">
-                            <div class="row desc">
+                        <div className="col-sm-12 col-md-8 col-lg-8 g-4 desc-mobile">
+                            <div className="row desc">
                                 <h1>Deskripsi</h1>
                                 <p>{/* Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut

@@ -31,12 +31,12 @@ const ModalBuyer = (props) => {
                         </div>
                         <div className="row-modal-item">
 
-                            <div class="col-4 profile">
-                                <Link to="/"><img class="" src="/img/hero.png" alt="" /></Link>
+                            <div className="col-4 profile">
+                                <Link to="/"><img className="" src="/img/hero.png" alt="" /></Link>
                             </div>
-                            <div class="col-8 seller-name">
+                            <div className="col-8 seller-name">
                                 <h1>Jam Tangan Casio</h1>
-                                <h4 class="price">Rp 250.000</h4>
+                                <h4 className="price">Rp 250.000</h4>
                             </div>
                         </div>
                         <div className="input-harga my-4">
@@ -45,7 +45,7 @@ const ModalBuyer = (props) => {
                             </h3>
                             <CurrencyInput
                                 id="input-example"
-                                class="modal-input"
+                                className="modal-input"
                                 name="input-name"
                                 placeholder="Please enter a number"
                                 defaultValue={100}

@@ -33,16 +33,16 @@ const ModalsTolak = (props) => {
                 </Modal.Header>
                 <Modal.Body >
                     <p className='fw-bold'>Perbarui status penjualan produkmu</p>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="transaksi" id="terima" value='terima' />
-                        <label class="form-check-label" for="terima" >
+                    <div className="form-check">
+                        <input className="form-check-input" type="radio" name="transaksi" id="terima" value='terima' />
+                        <label className="form-check-label" for="terima" >
                             <p className='text__input__transaksi'>Berhasil Terjual</p>
                             <p className='text-muted text__input__transaksi2'>Kamu telah sepakat menjual produk kepada pembeli</p>
                         </label>
                     </div>
-                    <div class="form-check ">
-                        <input class="form-check-input" type="radio" name="transaksi" id="tolak" value='tolak' />
-                        <label class="form-check-label" for="tolak">
+                    <div className="form-check ">
+                        <input className="form-check-input" type="radio" name="transaksi" id="tolak" value='tolak' />
+                        <label className="form-check-label" for="tolak">
                             <p className='text__input__transaksi'>Batalkan Transaksi</p>
                             <p className='text-muted text__input__transaksi2'>Kamu membatalkan transaksi produk ini dengan pembeli</p>
                         </label>
