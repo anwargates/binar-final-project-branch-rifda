@@ -9,6 +9,7 @@ import jwtDecode from "jwt-decode"
 import userSlice from "../Components/store/userSlice"
 import { useDispatch, useSelector } from "react-redux"
 import { useForm } from "react-hook-form";
+import StoreCities from '../Components/store/storeCities'
 // import Navbar from '../Components/Navbar/Navbar'
 
 const Buyer = () => {
@@ -135,7 +136,12 @@ const Buyer = () => {
                                         <div className="col-8 seller-name">
                                             <h1>{/* Nama Penjual */}
                                                 {product.data.user.name}</h1>
-                                            <h3>Kota</h3>
+                                            <h3>
+                                                <StoreCities
+                                                cityID={product.data.user.city_id}
+                                                />
+                                                {/* Kota */}
+                                            </h3>
                                         </div>
                                     </div>
                                 </div>

@@ -4,6 +4,7 @@ import './buyer.css'
 import { Button, Carousel } from 'react-bootstrap'
 import ModalBuyer from '../Components/Modal/ModalBuyer'
 import AlertBuyer from '../Components/Alert/AlertBuyer'
+import StoreCities from '../Components/store/storeCities'
 // import Navbar from '../Components/Navbar/Navbar'
 import axios from 'axios'
 import { IoHeart } from 'react-icons/io5'
@@ -41,13 +42,17 @@ const Buyer = () => {
     // create and delete wishlist
     const handleWishlist = () => {
         if (isWishlisted) {
-            axios.delete(urlWishlistDelete, config).then(response=>{console.log(response)
-                setIsWishlisted(!isWishlisted)});
+            axios.delete(urlWishlistDelete, config).then(response => {
+                console.log(response)
+                setIsWishlisted(!isWishlisted)
+            });
         } else {
-            axios.post(urlWishlistCreate, null, config).then(response=>{console.log(response)
-                setIsWishlisted(!isWishlisted)});
+            axios.post(urlWishlistCreate, null, config).then(response => {
+                console.log(response)
+                setIsWishlisted(!isWishlisted)
+            });
         }
-        
+
     }
 
     useEffect(() => {
@@ -157,9 +162,10 @@ const Buyer = () => {
                                                 {product.data.user.name}
                                             </h1>
                                             <h3>
-                                                Kota
-
-
+                                                <StoreCities
+                                                    cityID={product.data.user.city_id}
+                                                />
+                                                {/* Kota */}
                                             </h3>
                                         </div>
                                     </div>

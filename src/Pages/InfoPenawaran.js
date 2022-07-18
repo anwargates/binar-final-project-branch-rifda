@@ -41,7 +41,7 @@ const InfoPenawaran = () => {
             </a>
             <Col lg={7} className="mx-auto">
               <CardProfile
-                buyerID={offer.data.buyer_id}
+                offer={offer}
               />
             </Col>
           </Row>
