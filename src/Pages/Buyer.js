@@ -8,7 +8,6 @@ import AlertBuyer from '../Components/Alert/AlertBuyer'
 import axios from 'axios'
 import { IoHeart } from 'react-icons/io5'
 import { IconContext } from 'react-icons/lib'
-import { set } from 'immer/dist/internal'
 
 
 const Buyer = () => {
@@ -26,7 +25,8 @@ const Buyer = () => {
 
     const url = `https://finalsecondhand-staging.herokuapp.com/product/${id}`
     const urlWishlist = `https://finalsecondhand-staging.herokuapp.com/wishlist`
-    const urlWishlistAction = `https://finalsecondhand-staging.herokuapp.com/wishlist/${wishlistID}`
+    const urlWishlistDelete = `https://finalsecondhand-staging.herokuapp.com/wishlist/${wishlistID}`
+    const urlWishlistCreate = `https://finalsecondhand-staging.herokuapp.com/wishlist/${id}`
 
     let content = null
 
@@ -41,10 +41,10 @@ const Buyer = () => {
     // create and delete wishlist
     const handleWishlist = () => {
         if (isWishlisted) {
-            axios.delete(urlWishlistAction, config).then(response=>{console.log(response)
+            axios.delete(urlWishlistDelete, config).then(response=>{console.log(response)
                 setIsWishlisted(!isWishlisted)});
         } else {
-            axios.post(urlWishlistAction, config).then(response=>{console.log(response)
+            axios.post(urlWishlistCreate, null, config).then(response=>{console.log(response)
                 setIsWishlisted(!isWishlisted)});
         }
         
@@ -59,7 +59,7 @@ const Buyer = () => {
                     setWishlistID(tag.id)
                     setIsWishlisted(true)
                 }
-                return response;
+                return null;
             })
         })
     }, [url])
@@ -68,6 +68,7 @@ const Buyer = () => {
         content =
             <>
                 {console.log(isWishlisted)}
+                {console.log(wishlistID)}
                 {/* <Navbar /> */}
                 <AlertBuyer show={alertShow} onClose={() => setAlertShow(false)} />
                 <div className="back-nav">
