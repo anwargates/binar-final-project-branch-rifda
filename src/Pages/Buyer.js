@@ -9,6 +9,7 @@ import StoreCities from '../Components/store/storeCities'
 import axios from 'axios'
 import { IoHeart } from 'react-icons/io5'
 import { IconContext } from 'react-icons/lib'
+import CarouselProduct from '../Components/Carousel/CarouselProduct'
 
 
 const Buyer = () => {
@@ -72,8 +73,6 @@ const Buyer = () => {
     if (product) {
         content =
             <>
-                {console.log(isWishlisted)}
-                {console.log(wishlistID)}
                 {/* <Navbar /> */}
                 <AlertBuyer show={alertShow} onClose={() => setAlertShow(false)} />
                 <div className="back-nav">
@@ -83,36 +82,7 @@ const Buyer = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-12 col-md-8 col-lg-8 g-4 carousel-mobile">
-                            <Carousel>
-                                <Carousel.Item>
-                                    <img
-                                        className="d-block w-100"
-                                        src="/img/product.png"
-                                        alt="First slide"
-                                    />
-                                </Carousel.Item>
-                                <Carousel.Item>
-                                    <img
-                                        className="d-block w-100"
-                                        src="/img/product.png"
-                                        alt="Second slide"
-                                    />
-                                </Carousel.Item>
-                                <Carousel.Item>
-                                    <img
-                                        className="d-block w-100"
-                                        src="/img/product.png"
-                                        alt="Third slide"
-                                    />
-                                </Carousel.Item>
-                                <Carousel.Item>
-                                    <img
-                                        className="d-block w-100"
-                                        src="/img/product.png"
-                                        alt="Third slide"
-                                    />
-                                </Carousel.Item>
-                            </Carousel>
+                            <CarouselProduct/>
                         </div>
                         <div className="col-sm-12 col-md-4 col-lg-4 g-4 harga-mobile">
                             <div className="row gy-4 alignment-mobile">
@@ -203,11 +173,6 @@ const Buyer = () => {
 
                     />
                 </div>
-
-
-
-
-
             </>
     }
 

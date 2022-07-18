@@ -10,6 +10,7 @@ import userSlice from "../Components/store/userSlice"
 import { useDispatch, useSelector } from "react-redux"
 import { useForm } from "react-hook-form";
 import StoreCities from '../Components/store/storeCities'
+import CarouselProduct from '../Components/Carousel/CarouselProduct'
 // import Navbar from '../Components/Navbar/Navbar'
 
 const Buyer = () => {
@@ -35,13 +36,13 @@ const Buyer = () => {
 
 
     useEffect(() => {
-            axios.get(`https://finalsecondhand-staging.herokuapp.com/product/${id}`).then(response => {
-                // console.log(response);    
-                setProduct(response.data)
-            })
-            // console.log(state.data.data.id);
-            // console.log(product.data.user.id);
-            // console.log(product);
+        axios.get(`https://finalsecondhand-staging.herokuapp.com/product/${id}`).then(response => {
+            // console.log(response);    
+            setProduct(response.data)
+        })
+        // console.log(state.data.data.id);
+        // console.log(product.data.user.id);
+        // console.log(product);
     }, [`https://finalsecondhand-staging.herokuapp.com/product/${id}`])
 
 
@@ -60,36 +61,7 @@ const Buyer = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-12 col-md-8 col-lg-8 g-4 carousel-mobile">
-                            <Carousel>
-                                <Carousel.Item>
-                                    <img
-                                        className="d-block w-100"
-                                        src="/img/product.png"
-                                        alt="First slide"
-                                    />
-                                </Carousel.Item>
-                                <Carousel.Item>
-                                    <img
-                                        className="d-block w-100"
-                                        src="/img/product.png"
-                                        alt="Second slide"
-                                    />
-                                </Carousel.Item>
-                                <Carousel.Item>
-                                    <img
-                                        className="d-block w-100"
-                                        src="/img/product.png"
-                                        alt="Third slide"
-                                    />
-                                </Carousel.Item>
-                                <Carousel.Item>
-                                    <img
-                                        className="d-block w-100"
-                                        src="/img/product.png"
-                                        alt="Third slide"
-                                    />
-                                </Carousel.Item>
-                            </Carousel>
+                            <CarouselProduct />
                         </div>
                         <div className="col-sm-12 col-md-4 col-lg-4 g-4 harga-mobile">
                             <div className="row gy-4 alignment-mobile">
@@ -138,7 +110,7 @@ const Buyer = () => {
                                                 {product.data.user.name}</h1>
                                             <h3>
                                                 <StoreCities
-                                                cityID={product.data.user.city_id}
+                                                    cityID={product.data.user.city_id}
                                                 />
                                                 {/* Kota */}
                                             </h3>
