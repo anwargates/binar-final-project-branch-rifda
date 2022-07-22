@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import './seller.css'
-import { Button, Alert, Carousel } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import ModalBuyer from '../Components/Modal/ModalBuyer'
 import AlertBuyer from '../Components/Alert/AlertBuyer'
 import axios from 'axios'
-import jwtDecode from "jwt-decode"
 import userSlice from "../Components/store/userSlice"
 import { useDispatch, useSelector } from "react-redux"
-import { useForm } from "react-hook-form";
 import StoreCities from '../Components/store/storeCities'
 import CarouselProduct from '../Components/Carousel/CarouselProduct'
 // import Navbar from '../Components/Navbar/Navbar'
@@ -26,7 +24,8 @@ const Buyer = () => {
     const state = useSelector(state => state.user)
 
     // const url = `https://finalsecondhand-staging.herokuapp.com/product/${id}`
-    const [product, setProduct] = useState(null)
+    const [preview, setPreview] = useState(null);
+    const [categories, setCategories] = useState(null);
 
     let content = null
 
@@ -34,20 +33,35 @@ const Buyer = () => {
     //     axios.get(url).then(response => { setProduct(response.data) })
     // }, [url])
 
+    const token = localStorage.getItem("secondHandToken");
+    const config = {
+        headers: {
+            Authorization: 'Bearer ' + token
+        }
+    };
+    const getCategory = async () => {
+        const { data } = await axios.get(`https://finalsecondhand-staging.herokuapp.com/categories`);
+        setCategories(data.categories);
+        console.log(data);
+    };
+    const getData = async () => {
+        const { data } = await axios.get(`https://finalsecondhand-staging.herokuapp.com/product/preview`, config);
+        setPreview(data.preview_data);
+        console.log(data);
+    };
 
     useEffect(() => {
-        axios.get(`https://finalsecondhand-staging.herokuapp.com/product/${id}`).then(response => {
-            // console.log(response);    
-            setProduct(response.data)
-        })
+        getCategory();
+        getData();
+
         // console.log(state.data.data.id);
         // console.log(product.data.user.id);
         // console.log(product);
-    }, [`https://finalsecondhand-staging.herokuapp.com/product/${id}`])
+    }, [])
 
 
 
-    if (product)
+    if (preview)
     // && state.data.data.id === product.data.user.id
     {
         content =
@@ -58,7 +72,7 @@ const Buyer = () => {
                     <Link to="/"><img src="/img/fi_arrow-left.png" alt="" /></Link>
                     {/* <a href=""><img src="img/fi_arrow-left.png" alt=""></a> */}
                 </div>
-                <div className="container">
+                <div className="container container-seller">
                     <div className="row">
                         <div className="col-sm-12 col-md-8 col-lg-8 g-4 carousel-mobile">
                             <CarouselProduct />
@@ -68,18 +82,18 @@ const Buyer = () => {
                                 <div className="col-12">
                                     <div className="row harga">
                                         <h1>
-                                            {/* Jam Tangan Casio */}
-                                            {product.data.name}
+                                            Jam Tangan Casio
+                                            {/* {preview.data.name} */}
                                         </h1>
                                         <h3>
                                             {/* Aksesoris */}
-                                            {product.data.product_tags.map(function (tag) {
-                                                return tag.category.name + ", "
+                                            {categories.map(tag => {
+                                                return tag.name + ", "
                                             })}
                                         </h3>
                                         <h4 className="price">{/* Rp 250.000 */}
                                             Rp.
-                                            {product.data.price}</h4>
+                                            {preview.price}</h4>
                                         <Button
                                             // href='/info'
                                             disabled={disable}
@@ -107,10 +121,10 @@ const Buyer = () => {
                                         </div>
                                         <div className="col-8 seller-name">
                                             <h1>{/* Nama Penjual */}
-                                                {product.data.user.name}</h1>
+                                                {preview.name}</h1>
                                             <h3>
                                                 <StoreCities
-                                                    cityID={product.data.user.city_id}
+                                                    cityID={preview.city_id}
                                                 />
                                                 {/* Kota */}
                                             </h3>
@@ -129,7 +143,7 @@ const Buyer = () => {
                                     culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet consectetur
                                     adipisicing elit. Exercitationem cupiditate excepturi assumenda ipsum molestias, aut, odit quod
                                     quibusdam quos consequuntur libero incidunt impedit, nam possimus explicabo totam quam qui tempore. */}
-                                    {product.data.description}
+                                    {preview.description}
                                 </p>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut

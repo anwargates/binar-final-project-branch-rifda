@@ -79,7 +79,7 @@ const Buyer = () => {
                     <Link to="/"><img src="/img/fi_arrow-left.png" alt="" /></Link>
                     {/* <a href=""><img src="img/fi_arrow-left.png" alt=""></a> */}
                 </div>
-                <div className="container">
+                <div className="container container-buyer">
                     <div className="row">
                         <div className="col-sm-12 col-md-8 col-lg-8 g-4 carousel-mobile">
                             <CarouselProduct/>
