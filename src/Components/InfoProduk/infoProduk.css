@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+
+:root {
+	--header: #000000;
+	--border: #d0d0d0;
+	--primary: #7126b5;
+	--secondary: #ffffff;
+	--lighter: #bf83f8;
+	--veryLight: #f5f4f4;
+	--thin: rgb(228, 222, 222);
+	--hover: #2ecc6d;
+	--hover_2: #a6e22f;
+}
+
+.header {
+	font-family: Poppins;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 30px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+.text_reguler {
+	font-family: Poppins;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 20px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+.text_reguler_2 {
+	font-family: Poppins;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 24px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+.text_small {
+	font-family: Poppins;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 18px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+.text_footer {
+	font-family: Poppins;
+	font-size: 10px;
+	font-weight: 400;
+	line-height: 14px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+/*=========  default setting end  ==========*/
+/*=========  header start  ==========*/
+
+.produk_header_container {
+	border-bottom: 1px solid var(--border);
+	padding: 12px;
+}
+
+.produk_header {
+	margin: 20px 0px 0px 40vh;
+}
+
+.infoProduk_arrow {
+	margin: 20px 0px 20px 25vh;
+}
+
+/*=========  header end  ==========*/
+/*=========   start  ==========*/
+
+.infoProduk_box {
+	border: 1px solid var(--border);
+	margin-left: 10px;
+	border-radius: 16px;
+	padding: 12px;
+	width: 150%;
+}
+
+/*=========  form end  ==========*/
+/*=========  dropzone start  ==========*/
+
+.produk_form_container {
+	margin: 0px 0px 0px 40vh;
+}
+
+.infoProduk_img {
+	border: 3px solid #dddada;
+	border-style: dashed;
+	width: 150px;
+	height: 125px;
+	margin: 50px 0px 50px 0px;
+	border-radius: 16px;
+}
+
+.infoProduk_icon {
+	margin-top: 50px;
+	margin-left: 60px;
+	font-size: 22px;
+	color: var(--header);
+}
+
+/*=========   end  ==========*/
+/*=========   start  ==========*/
+
+.produk_btn1 {
+	margin-bottom: 50px;
+	border: 2px solid var(--primary);
+	background-color: transparent;
+	font-weight: 400;
+	padding: 12px 90px;
+	border-radius: 16px;
+	/* margin-left: 40vh; */
+	transition: 0.4s ease-in-out;
+}
+
+.produk_btn1:hover {
+	background-color: var(--hover);
+	color: var(--secondary);
+	border: 2px solid var(--hover);
+}
+
+.produk_btn2 {
+	background-color: var(--primary);
+	font-weight: 400;
+	padding: 12px 90px;
+	border-radius: 16px;
+	margin-left: 10px;
+	color: var(--secondary);
+	border: 2px solid var(--primary);
+	transition: 0.4s ease-in-out;
+}
+
+.produk_btn2:hover {
+	background-color: var(--hover_2);
+	color: var(--header);
+	border: 2px solid var(--hover_2);
+}
+
+@media screen and (max-width: 768px) {
+	.produk_header_container {
+		border-bottom: none;
+	}
+
+	.infoProduk_arrow {
+		margin: 7vh 0px 0px 30px;
+	}
+
+	.produk_header {
+		margin: 51px 0px 0px 100px;
+	}
+
+	.infoProdukForm_container {
+		margin: 20px 0px;
+	}
+
+	.produk_form_container {
+		margin: 0px;
+	}
+
+	.infoProduk_label {
+		margin-left: 20px;
+	}
+
+	.infoProduk_box {
+		width: 85%;
+	}
+
+	.infoProduk_lastForm {
+		margin-bottom: 20px;
+	}
+
+	.infoProduk_img {
+		margin: 0px 0px 50px 10px;
+	}
+
+	.produk_btn1 {
+		margin: 0;
+		padding: 12px 62px;
+	}
+
+	.produk_btn2 {
+		margin: 0px 0px 50px 20px;
+		padding: 12px 62px;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.produk_btn1 {
+		padding: 12px 16vh;
+	}
+
+	.produk_btn2 {
+		padding: 12px 16vh;
+	}
+}
+
+@media screen and (min-width: 1399px) {
+	.produk_btn1 {
+		padding: 12px 18vh;
+	}
+
+	.produk_btn2 {
+		padding: 12px 18vh;
+	}
+}
+/*
+
+
+
+*/

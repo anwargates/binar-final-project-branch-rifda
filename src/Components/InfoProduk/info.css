@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+
+:root {
+	--header: #000000;
+	--border: #d0d0d0;
+	--primary: #7126b5;
+	--secondary: #ffffff;
+}
+
+.produk_header_container {
+	border: 1px solid var(--veryLight);
+	padding: 12px 24px;
+	box-shadow: -1px 2px 5px 6px rgba(235, 235, 235, 0.75);
+	-webkit-box-shadow: -1px 2px 5px 6px rgba(235, 235, 235, 0.75);
+	-moz-box-shadow: -1px 2px 5px 6px rgba(235, 235, 235, 0.75);
+}
+
+.produk_header {
+	margin: 20px 0px 0px 70vh;
+}
+
+.arrow-svg {
+	margin: 18px 0px 0px 45px;
+}
+
+label {
+	font-family: Poppins;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 18px;
+	letter-spacing: 0em;
+	text-align: left;
+	padding-top: 20px;
+	margin: 10px 12px 8px 12px;
+}
+
+.input_box {
+	border: 1px solid var(--border);
+	margin-left: 10px;
+	border-radius: 16px;
+	padding: 12px;
+	width: 100vh;
+}
+
+.picture_place {
+	border: 1px solid #7126b5;
+	width: 96px;
+	height: 96px;
+	border-radius: 4px;
+	margin: 20px 0px 0px 30vh;
+	padding: 20px 20px 0px 40px;
+	border-style: dashed;
+	cursor: pointer;
+}
+
+.produk_btnGroup {
+	margin: 30px 0px 0px 30vh;
+}
+
+.produk_btn1 {
+	border: 1px solid var(--primary);
+	color: var(--header);
+	font-size: 14px;
+	padding: 12px 150px;
+	border-radius: 16px;
+	background-color: transparent;
+	margin-right: 10px;
+}
+
+.produk_btn2 {
+	border: 1px solid var(--primary);
+	color: var(--secondary);
+	font-size: 14px;
+	padding: 12px 150px;
+	border-radius: 16px;
+	background-color: var(--primary);
+}
+
+.daftar {
+	text-decoration: none;
+	margin-left: 5px;
+	color: var(--primary);
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 20px;
+	letter-spacing: 0em;
+	text-align: left;
+	text-transform: capitalize;
+}
+
+@media screen and (max-width: 768px) {
+	.register_right {
+		margin-left: 20.5px;
+	}
+
+	.arrow-svg {
+		margin: 50px 0px 0px 20.5px;
+	}
+
+	.login_label {
+		margin-left: 10px;
+	}
+
+	.input_box {
+		border: 1px solid var(--border);
+		margin-left: 1px;
+		border-radius: 16px;
+		padding: 12px 16px;
+		width: 85%;
+	}
+
+	.picture_place {
+		border: 1px solid #7126b5;
+		width: 96px;
+		height: 96px;
+		border-radius: 4px;
+		margin: 20px 0px 0px 25px;
+		padding: 20px 20px 0px 40px;
+		border-style: dashed;
+		cursor: pointer;
+	}
+
+	.produk_icon {
+		margin: 20px 0px 0px -5px;
+		cursor: pointer;
+		font-size: 25px;
+		color: var(--header);
+	}
+
+	.produk_btnGroup {
+		margin: 30px 0px 0px 20px;
+	}
+
+	.produk_btn1 {
+		border: 1px solid var(--primary);
+		color: var(--header);
+		font-size: 14px;
+		padding: 12px 75px;
+		border-radius: 16px;
+		background-color: transparent;
+		margin-right: 10px;
+	}
+
+	.produk_btn2 {
+		border: 1px solid var(--primary);
+		color: var(--secondary);
+		font-size: 14px;
+		padding: 12px 75px;
+		border-radius: 16px;
+		background-color: var(--primary);
+	}
+}
